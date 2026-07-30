@@ -1,0 +1,1535 @@
+{
+  "info": {
+    "_postman_id": "ce82e916-cfa0-4f74-8480-cba14d4636c1",
+    "name": "CodSoft",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "42555287"
+  },
+  "item": [
+    {
+      "name": "contact_management_exp",
+      "item": [
+        {
+          "name": "create contact",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"red\",\r\n  \"email\": \"red@example.com\",\r\n  \"phone\": \"9844234567\",\r\n  \"address\": \"Kathmandu\",\r\n  \"company\": \"CodSoft\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contacts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contacts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all contacts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/contacts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contacts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get contact by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/contacts/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contacts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update contact",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"red\",\r\n  \"email\": \"red@example.com\",\r\n  \"phone\": \"9844234567\",\r\n  \"address\": \"Lalitpur\",\r\n  \"company\": \"CodSoft\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/contacts/11",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contacts",
+                "11"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete contact",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/contacts/6",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contacts",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "search contact by name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/contacts/search?search=renu",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contacts",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "renu"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sort contacts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/contacts/sort?sort=name&order=desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contacts",
+                "sort"
+              ],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "name"
+                },
+                {
+                  "key": "order",
+                  "value": "desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/contacts/pagination?page=1&limit=2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "contacts",
+                "pagination"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "search by phone",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "search by email",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "library_exp",
+      "item": [
+        {
+          "name": "Members",
+          "item": [
+            {
+              "name": "create member",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@gmail.com\",\r\n  \"phone\": \"9800000001\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/members",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all members",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/members",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get member by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/members/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update member",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": " {\r\n    \"name\": \"jason\",\r\n    \"email\": \"jason@gmail.com\",\r\n    \"phone\": \"9800000001\"\r\n }\r\n     ",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/members/5",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete member",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/members/5",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "search by name",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "filter members",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/members/filter?hasIssuedBooks=true",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members",
+                    "filter"
+                  ],
+                  "query": [
+                    {
+                      "key": "hasIssuedBooks",
+                      "value": "true"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "paginate member",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/members/paginate?page=1&limit=3",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members",
+                    "paginate"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "search by phone",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/members/search?search=9800",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "9800"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "search by email",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/members/search?search=renu@example.com",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "members",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "renu@example.com"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Books",
+          "item": [
+            {
+              "name": "create book",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Atomic Habits\",\r\n  \"isbn\": \"9780735211292\",\r\n  \"publishedYear\": 2018,\r\n  \"totalCopies\": 10,\r\n  \"authorId\": 4\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/books",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "books"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all books",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/books",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "books"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get book by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/books/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "books",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update book",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"title\": \"haary potter\",\r\n        \"isbn\": \"1234567899023\",\r\n        \"publishedYear\": 1998,\r\n        \"totalCopies\": 5,\r\n         \"author\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/books/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "books",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete book",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "filter book by author",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/books/search?title=flower",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "books",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "key": "title",
+                      "value": "flower"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "paginate book",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Author",
+          "item": [
+            {
+              "name": "create author",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"sir\",\r\n  \"bio\": \"im sir.\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/authors",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "authors"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all authors",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/authors",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "authors"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get author by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/authors/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "authors",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update author",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"name\": \"sirs\",\r\n        \"bio\": \"im sirs.\",\r\n        \"createdAt\": \"2026-07-30T07:06:04.651Z\"\r\n    }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/authors/5",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "authors",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete author",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Issued books",
+          "item": [
+            {
+              "name": "create issue book",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"bookId\": 5,\r\n  \"memberId\": 1,\r\n  \"dueDate\": \"2026-08-03\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/api/issued-books",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "issued-books"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all issue books",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/issued-books",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "issued-books"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Issued Book By ID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/issued-books/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "issued-books",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Return a Book",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/issued-books/2/return",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "issued-books",
+                    "2",
+                    "return"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Overdue Books",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/api/issued-books/overdue",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "api",
+                    "issued-books",
+                    "overdue"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "reports",
+          "item": [
+            {
+              "name": "get library reports",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/reports",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "reports"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "student_record_exp",
+      "item": [
+        {
+          "name": "students",
+          "item": [
+            {
+              "name": "create student Copy",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john@example.com\",\r\n  \"age\": 22\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/students",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all student Copy",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/students",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "filter student by age Copy",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/students/age?age=22",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students",
+                    "age"
+                  ],
+                  "query": [
+                    {
+                      "key": "age",
+                      "value": "22"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get student by id Copy",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/students/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "sort student by name, age, email, id Copy",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/students/sort?sort=id&order=asc",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students",
+                    "sort"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "id"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "pagination Copy",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/students/page?page=1&limit=5",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students",
+                    "page"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update student Copy",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "  {\r\n        \"id\": 17,\r\n        \"name\": \"John dam\",\r\n        \"email\": \"john@example.com\",\r\n        \"age\": 22\r\n    }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/students/17",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students",
+                    "17"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get student by name Copy",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/students/name?name=john",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students",
+                    "name"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "john"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete student Copy",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/students/17",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "students",
+                    "17"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "course",
+          "item": [
+            {
+              "name": "create course",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Web Development\",\r\n  \"credits\": 3\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all course",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/courses",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "courses"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get course by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/courses/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "courses",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update course",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"id\": 13,\r\n        \"title\": \"Web & mobile Development\",\r\n        \"credits\": 3\r\n    }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/courses/13",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "courses",
+                    "13"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete course",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/courses/13",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "courses",
+                    "13"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "enrollment",
+          "item": [
+            {
+              "name": "create enrollment",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"studentId\": 1,\r\n  \"courseId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:5000/enrollments",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "enrollments"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all enrollment",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/enrollments",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "enrollments"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get enrollment by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/enrollments/1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "enrollments",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete enrollment",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:5000/enrollments/6",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "enrollments",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "to-do_django",
+      "item": [
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/register/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "register",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/login/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "login",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create task",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Complete Postman Testing\",\r\n    \"description\": \"Test all To-Do API endpoints and save the collection\",\r\n    \"status\": \"Pending\",\r\n    \"priority\": \"Low\",\r\n    \"category\": \"Testing\",\r\n    \"due_date\": \"2026-08-25\"\r\n}\r\n\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tasks/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tasks",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all tasks",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "update task",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Lok dokey\",\r\n    \"description\": \"Finish serializers and authentication\",\r\n    \"status\": \"Completed\",\r\n    \"priority\": \"High\",\r\n    \"category\": \"Study\",\r\n    \"due_date\": \"2026-08-20\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tasks/15/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tasks",
+                "15",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete task",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tasks/15/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tasks",
+                "15",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "search task",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "get task by id",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "filter tasks",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
