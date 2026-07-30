@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// "Read the value of DATABASE_URL from the .env file."
+// So Prisma now knows: I'm using PostgreSQL., Here is the connection string.
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Generate the Database Tables
+model Student {
+  id Int @id @default(autoincrement())
+  name String 
+  email String @unique
+  age Int
+  enrollments Enrollment[]
+}
+
+model Course {
+  id Int @id @default(autoincrement())
+  title String
+  credits Int
+  enrollments Enrollment[]
+}
+
+model Enrollment {
+  id Int @id @default(autoincrement())
+  studentId Int
+  courseId Int
+
+}
