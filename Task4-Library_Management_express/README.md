@@ -1,136 +1,188 @@
 taskkill /F /IM node.exe (You may have an old server already running on port 5000 from another project.)
 
-# Library Management System API
+# Library Management System API (Backend)
 
-A RESTful Library Management System built using **Node.js**, **Express.js**, **Prisma ORM**, and **PostgreSQL**.
+# 1. Overview
 
-This project was developed as **Task 4** for the **CodSoft Backend Development Internship**.
+The Library Management System API is a RESTful backend application developed using **Node.js**, **Express.js**, **Prisma ORM**, **PostgreSQL**, and **Zod**.
+
+It allows users to manage authors, books, members, and book borrowing operations through REST APIs. The system supports CRUD operations, book issuing and returning, availability tracking, searching, filtering, pagination, overdue book detection, and late fee calculation.
+
+This project was completed as **Task 4** for the **CodSoft Backend Development Internship**.
 
 ---
 
-# Features
+# 2. Features
 
-- Author CRUD
-- Book CRUD
-- Member CRUD
-- Issue Books
-- Return Books
-- Track Book Availability
-- Borrowing History
-- Prevent Duplicate Book Issues
+## Author Management
+
+- Create Author
+- Get All Authors
+- Get Author by ID
+- Update Author
+- Delete Author
+
+## Book Management
+
+- Create Book
+- Get All Books
+- Get Book by ID
+- Update Book
+- Delete Book
 - Search Books
 - Filter Books
-- Paginate Books
+- Pagination
+
+## Member Management
+
+- Create Member
+- Get All Members
+- Get Member by ID
+- Update Member
+- Delete Member
 - Search Members
 - Filter Members
-- Paginate Members
-- Input Validation using Zod
-- Proper Error Handling
-- Prisma ORM with PostgreSQL
+- Pagination
 
-### Bonus Features
+## Issue Books
+
+-  Create Issue Book
+- Get all issued books
+- Get all issued book by id
+- Return Book
+- Track Available Copies
+- Prevent Duplicate Book Issues
+
+## report
+- get all library reports
+
+
+## Bonus Features
 
 - Overdue Book Detection
 - Overdue Days Calculation
 - Late Fee Calculation
 
+## Validation
+
+- Zod Validation
+- Duplicate Email Validation
+- Proper Error Handling
+
 ---
 
-# Tech Stack
+# 3. Technologies Used
 
 - Node.js
 - Express.js
 - PostgreSQL
 - Prisma ORM
 - Zod
+- dotenv
 - CORS
+- Nodemon
+- Postman (API Testing)
 
 ---
 
-# Project Structure
+# 4. Project Structure
 
-```
-src
+```text
+Task4-Library_Management_express
 │
-├── config
-│   └── db.js
+├── prisma/
+│   ├── schema.prisma
+│   └── migrations/
 │
-├── controllers
-│   ├── authorController.js
-│   ├── bookController.js
-│   ├── memberController.js
-│   └── issuedBookController.js
+├── src/
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── controllers/
+│   │   ├── authorController.js
+│   │   ├── bookController.js
+│   │   ├── memberController.js
+│   │   ├── issuedBookController.js
+│   │   └── reportController.js
+│   │
+│   ├── middleware/
+│   │   ├── authorValidation.js
+│   │   ├── bookValidation.js
+│   │   ├── memberValidation.js
+│   │   └── issuedBookValidation.js
+│   │
+│   ├── routes/
+│   │   ├── authorRoutes.js
+│   │   ├── bookRoutes.js
+│   │   ├── memberRoutes.js
+│   │   ├── issuedBookRoutes.js
+│   │   └── reportRoutes.js
+│   │
+│   ├── app.js
+│   └── server.js
 │
-├── middleware
-│   ├── authorValidation.js
-│   ├── bookValidation.js
-│   └── memberValidation.js
-│
-├── routes
-│   ├── authorRoutes.js
-│   ├── bookRoutes.js
-│   ├── memberRoutes.js
-│   └── issuedBookRoutes.js
-│
-├── app.js
-└── server.js
-
-prisma
-│
-├── schema.prisma
-└── migrations
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
 ---
 
-# Installation
+# 5. Installation
 
-Clone the repository
-
-```bash
-git clone <repository-url>
-```
-
-Go to the project
+## 1. Clone the repository
 
 ```bash
-cd Library_Management_express
+git clone https://github.com/surakshyamagar/CODSOFT_TASKSNO.git
 ```
 
-Install dependencies
+## 2. Move into the project
+
+```bash
+cd Task4-Library_Management_express
+```
+
+## 3. Install dependencies
 
 ```bash
 npm install
 ```
 
-Create a `.env` file
+## 4. Configure the .env file
 
 ```env
-DATABASE_URL="postgresql://username:password@localhost:5432/librarydb"
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/librarydb"
 PORT=5000
 ```
 
-Generate Prisma Client
+## 5. Generate Prisma Client
 
 ```bash
 npx prisma generate
 ```
 
-Run database migrations
+## 6. Run Database Migrations
 
 ```bash
 npx prisma migrate dev
 ```
 
-Start the server
+## 7. Start the Server
+
+Development Mode
 
 ```bash
 npm run dev
 ```
 
----
+Production Mode
 
-# Base URL
+```bash
+npm start
+```
+
+The server runs at
 
 ```
 http://localhost:5000
@@ -138,7 +190,7 @@ http://localhost:5000
 
 ---
 
-# Database Models
+# 6. Database Models
 
 ## Author
 
@@ -182,7 +234,7 @@ http://localhost:5000
 
 ---
 
-# API Endpoints
+# 7. API Endpoints
 
 ## Authors
 
@@ -190,7 +242,7 @@ http://localhost:5000
 |---------|----------|-------------|
 | POST | /authors | Create Author |
 | GET | /authors | Get All Authors |
-| GET | /authors/:id | Get Author By ID |
+| GET | /authors/:id | Get Author by ID |
 | PUT | /authors/:id | Update Author |
 | DELETE | /authors/:id | Delete Author |
 
@@ -202,12 +254,22 @@ http://localhost:5000
 |---------|----------|-------------|
 | POST | /books | Create Book |
 | GET | /books | Get All Books |
-| GET | /books/:id | Get Book By ID |
+| GET | /books/:id | Get Book by ID |
 | PUT | /books/:id | Update Book |
 | DELETE | /books/:id | Delete Book |
-| GET | /books/search?title=Harry | Search Books |
-| GET | /books/filter?authorId=1 | Filter Books |
-| GET | /books/paginate?page=1&limit=5 | Pagination |
+
+
+### Filter
+
+```
+GET /books/filter?authorId=1
+```
+
+### Pagination
+
+```
+GET /books/pagination?page=1&limit=5
+```
 
 ---
 
@@ -217,12 +279,27 @@ http://localhost:5000
 |---------|----------|-------------|
 | POST | /members | Create Member |
 | GET | /members | Get All Members |
-| GET | /members/:id | Get Member By ID |
+| GET | /members/:id | Get Member by ID |
 | PUT | /members/:id | Update Member |
 | DELETE | /members/:id | Delete Member |
-| GET | /members/search?search=John | Search Members |
-| GET | /members/filter?hasIssuedBooks=true | Filter Members |
-| GET | /members/paginate?page=1&limit=5 | Pagination |
+
+### Search
+
+```
+GET /members/search?search=John
+```
+
+### Filter
+
+```
+GET /members/filter?hasIssuedBooks=true
+```
+
+### Pagination
+
+```
+GET /members/paginate?page=1&limit=5
+```
 
 ---
 
@@ -232,96 +309,98 @@ http://localhost:5000
 |---------|----------|-------------|
 | POST | /api/issued-books | Issue Book |
 | GET | /api/issued-books | Get All Issued Books |
-| GET | /api/issued-books/:id | Get Issued Book By ID |
+| GET | /api/issued-books/:id | Get Issued Book by ID |
 | PUT | /api/issued-books/:id/return | Return Book |
 | GET | /api/issued-books/overdue | Get Overdue Books |
 
 ---
 
-# Business Rules
+## Reports
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /reports | All librray reports |
+
+---
+
+# 8. Business Rules
 
 The system validates the following rules:
 
 - Book must exist before issuing.
 - Member must exist before issuing.
 - Book must have available copies.
-- A member cannot issue the same book twice without returning it first.
+- A member cannot issue the same book twice without returning it.
 - Returning a book automatically increases available copies.
-- Deleting a member with existing issue records is not allowed.
+- Duplicate member emails are not allowed.
 - ISBN must contain exactly 13 digits.
-- Email must be unique.
-- Request data is validated using Zod.
+- All request data is validated using Zod.
 
 ---
 
-# Search
+# 9. HTTP Status Codes
 
-Search books by title
-
-```
-GET /books/search?title=Harry
-```
-
-Search members
-
-```
-GET /members/search?search=John
-```
+| Status Code | Meaning |
+|-------------|---------|
+| 200 | Success |
+| 201 | Resource Created |
+| 400 | Bad Request |
+| 404 | Resource Not Found |
+| 500 | Internal Server Error |
 
 ---
 
-# Filter
+# 10. Testing
 
-Books by author
+All API endpoints were tested successfully using **Postman**.
 
-```
-GET /books/filter?authorId=1
-```
+Tested Features
 
-Members with issued books
-
-```
-GET /members/filter?hasIssuedBooks=true
-```
+- Author CRUD
+- Book CRUD
+- Member CRUD
+- Book Issue
+- Book Return
+- Search
+- Filter
+- Pagination
+- Overdue Book Detection
+- Late Fee Calculation
+- Validation
 
 ---
 
-# Pagination
+# 11. Postman Collection
 
-Books
+All API endpoints were tested using **Postman**.
 
-```
-GET /books/paginate?page=1&limit=5
-```
+The exported Postman Collection is available in the repository.
 
-Members
-
-```
-GET /members/paginate?page=1&limit=5
+```text
+Postman/
+└── CodSoft.postman_collection.json
 ```
 
 ---
 
-# Bonus Features
+# 12. Learning Outcomes
 
-## Overdue Books
+Through this project, I learned:
 
-```
-GET /api/issued-books/overdue
-```
+- Node.js
+- Express.js
+- PostgreSQL
+- Prisma ORM
+- CRUD Operations
+- Database Relationships
+- REST API Development
+- Request Validation using Zod
+- Search, Filtering, and Pagination
+- Business Logic Implementation
+- Overdue Book Detection
+- Late Fee Calculation
+- API Testing with Postman
 
-Returns:
+---
 
-- overdueDays
-- lateFee
-
-# Validation
-
-The project uses **Zod** to validate incoming request data before it reaches the controllers.
-
-
-# Testing
-
-All endpoints were tested successfully using **Postman**.
-
-
+Backend Development Internship – CodSoft

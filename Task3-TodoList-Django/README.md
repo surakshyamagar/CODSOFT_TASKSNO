@@ -1,6 +1,12 @@
-# To-Do List Backend API
+# To-Do List Backend API (Backend)
 
-A RESTful To-Do List Backend API built with **Django** and **Django REST Framework**. This project allows users to securely manage their personal tasks with JWT authentication, search, filtering, and full CRUD functionality.
+# 1. Overview
+
+The To-Do List Management API is a RESTful backend application developed using Python, Django, Django REST Framework (DRF), SQLite, and JWT Authentication.
+
+It allows users to securely manage their personal tasks with full CRUD operations, search, filtering, categories, priorities, due dates, and user-specific task management.
+
+This project was completed as **Task 3** for the **CodSoft Backend Development Internship**.
 
 ---
 
@@ -16,7 +22,6 @@ A RESTful To-Do List Backend API built with **Django** and **Django REST Framewo
 - Search Tasks by Title
 - Filter Tasks by Status
 - Task Priority Levels
-- Task Categories
 - Due Dates
 - User-specific Tasks (Each user can only access their own tasks)
 - Proper HTTP Status Codes
@@ -37,7 +42,7 @@ A RESTful To-Do List Backend API built with **Django** and **Django REST Framewo
 # Project Structure
 
 ```
-Task2-TodoList-API/
+Task3-TodoList-Django/
 │
 ├── config/
 │   ├── settings.py
@@ -71,7 +76,7 @@ git clone https://github.com/surakshyamagar/CODSOFT_TASKSNO.git
 ## 2. Move into the project
 
 ```bash
-cd Task2-TodoList-API
+cd Task3-TodoList-Django
 ```
 ## 3. Create Virtual Environment
 python -m venv venv 
@@ -387,7 +392,6 @@ Tested Features
 - User Registration
 - User Login
 - Due Dates
-- Categories
 - Priority Levels
 - User-specific Tasks
 - Search
